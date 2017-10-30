@@ -3,6 +3,8 @@ var fs = require('fs');
 var q = require('q');
 
 var matriculas_mongodb_file_name = './files/matriculas_mongodb.txt';
+var matriculas_final_file_name = './files/matriculas_final.txt';
+
 var matriculas_novas_file_name = './files/matriculas_outubro_2017.txt';
 
 
@@ -48,6 +50,8 @@ function compararMatriculas() {
             matriculasNovas = results;
             
             matriculasMongo.forEach(function(element) {
+                if (!element || element === undefined || element === '') return;
+
                 if (matriculasNovas.indexOf(element) === -1) {
                     matriculasRemovidas.push(parseInt(element));
                 }
@@ -58,6 +62,8 @@ function compararMatriculas() {
             });
             
             matriculasNovas.forEach(function(element) {
+                if (!element || element === undefined || element === '') return;
+
                 if (matriculasMongo.indexOf(element)  === -1) {
                     matriculasAdicionadas.push(parseInt(element));
                 }
@@ -83,6 +89,15 @@ function compararMatriculas() {
             // console.log("----------------");
             // console.log("matriculasRemovidas");
             // console.log(matriculasRemovidas);
+
+            fs.writeFile(matriculas_final_file_name, matriculasFinal, function(err) {
+                if (err) {
+                    return console.log(err);
+                }
+
+                console.log('Arquivo salvo com sucesso.');
+            });
+
 
         });
 }
