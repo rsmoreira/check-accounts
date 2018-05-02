@@ -2,10 +2,10 @@ var http = require('http');
 var fs = require('fs');
 var q = require('q');
 
-var matriculas_mongodb_file_name = './files/matriculas_mongodb.txt';
+var matriculas_mongodb_file_name = './files/matriculas_mongodb_atuais.txt';
 var matriculas_final_file_name = './files/matriculas_final.txt';
 
-var matriculas_novas_file_name = './files/matriculas_outubro_2017.txt';
+var matriculas_novas_file_name = './files/matriculas_novas.txt';
 
 
 console.log(matriculas_mongodb_file_name);

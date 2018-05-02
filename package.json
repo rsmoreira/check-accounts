@@ -1,0 +1,19 @@
+{
+  "name": "check-atlassian-accounts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "check-atlassian-accounts",
+  "engines": {
+    "node": "6.0.0",
+    "npm": "3.10.3"
+  },
+  "scripts": {
+    "start": "node check-atlassian-accounts.js",
+    "dev": "nodemon check-atlassian-accounts.js"
+  },
+  "author": "Rafael Moreira",
+  "license": "ISC",
+  "dependencies": {
+    "q": "^1.5.1"
+  }
+}
